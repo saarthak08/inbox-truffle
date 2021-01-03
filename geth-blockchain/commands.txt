@@ -1,0 +1,19 @@
+1) For init blockhain:
+"mkdir blockchain-data"
+"geth init --datadir blockchain-data genesis.json"
+
+2) For deployment of blockchain: 
+"geth --datadir=blockchain-data --networkid 420 --nodiscover --ws --ws.api eth,web3,miner,admin,net,personal,txpool,debug,txpool --allow-insecure-unlock"
+//Dont' write --allow-insecure-unlock for production purposes.
+
+
+3) For attaching console to blockchain:
+"geth attach ws://127.0.0.1:8546"
+
+
+4) Now for initial allocation of ethers to the account. Create the account in the attached console & paste its address in alloc column in genesis.json file. 
+Now, delete all the contents in the blockchain-data directory except the keystore folder and repeat 1 & 2 steps again.
+Now, the account would contain the allocated ethers.
+
+5) Don't forget to start mining using `miner.start()` command in order to push the blocks to the blockchain.
+
